@@ -28,10 +28,10 @@ export default useNews = () => {
     setLoading(true)
     const allNews = await newsApi.getAll();
     setFeaturedNews(filterFeatured(allNews));
-    setBreakingNews(filterByCategory(allNews, "breaking-news"));
-    setTechNews(filterByCategory(allNews, "tech"));
-    setPoliticalNews(filterByCategory(allNews, "political"));
-    setEntertainmentNews(filterByCategory(allNews, "entertainment"));
+    setBreakingNews(filterByCategory(allNews, "tin nóng"));
+    setTechNews(filterByCategory(allNews, "công nghệ"));
+    setPoliticalNews(filterByCategory(allNews, "chính trị"));
+    setEntertainmentNews(filterByCategory(allNews, "giải trí"));
     setLoading(false)
   };
   useEffect(() => {

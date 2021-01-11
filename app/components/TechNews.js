@@ -2,10 +2,11 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import HorizontalList from "./lists/HorizontalList";
+import VerticalList from "./lists/VerticalList";
 
 // create a component
 const TechNews = ({ data }) => {
-  return <HorizontalList title="Công nghệ" data={data} />;
+  return <VerticalList title="Công nghệ" data={data} />;
 };
 
 // define your styles

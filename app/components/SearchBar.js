@@ -63,7 +63,6 @@ const SearchBar = ({setSearchFocused}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
     width: "100%",
     height: 50,
     backgroundColor: "white",

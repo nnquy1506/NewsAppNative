@@ -23,10 +23,11 @@ const AppNavigator = () => {
           backgroundColor: 'rgba(92,90,91,0.7)',
           alignItems: 'center',
           marginLeft: 10,
+          marginTop: 30
         }
       }
     }>
-      <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="NewsDetail" component={NewsDetail} />
       <Stack.Screen name="NewsList" component={NewsList} />
     </Stack.Navigator>

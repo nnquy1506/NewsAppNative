@@ -7,7 +7,7 @@ const ViewMore = ({style, onPress}) => {
     return (
         <TouchableWithoutFeedback onPress={onPress}>
         <View style={[styles.container, style]}>
-            <Text style={styles.text}>ViewMore</Text>
+            <Text style={styles.text}>Nhiều hơn</Text>
         </View>
         </TouchableWithoutFeedback>
     );

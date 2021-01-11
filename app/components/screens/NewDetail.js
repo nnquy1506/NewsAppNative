@@ -7,6 +7,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  useWindowDimensions 
 } from "react-native";
 import newsApi from "../../api/newsApi";
 import Close from "../common/Close";
@@ -14,6 +15,7 @@ import HorizontalList from "../lists/HorizontalList";
 
 import { useNavigation } from "@react-navigation/native";
 import ActivityIndicator from "../common/ActivityIndicator";
+import HTML from 'react-native-render-html'
 const { width, height } = Dimensions.get("window");
 // create a component
 const NewDetail = ({ route }) => {
@@ -38,6 +40,7 @@ const NewDetail = ({ route }) => {
   }, []);
   const navigation = useNavigation();
   const { title, content, thumbnail } = news;
+  const contentWidth = useWindowDimensions().width;
   return (
     <>
       <ActivityIndicator visible={loading} />
@@ -45,7 +48,8 @@ const NewDetail = ({ route }) => {
         <Image style={styles.image} source={{ uri: thumbnail }} />
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{title}</Text>
-          <Text style={styles.content}>{content}</Text>
+          {/* <Text style={styles.content}>{content}</Text> */}
+          <HTML   source={{ html: content }} contentWidth={contentWidth} />
         </View>
         <View style={styles.relatedPostContainer}>
           <HorizontalList data={relatedNews} title="Bài đăng liên quan" />
@@ -67,7 +71,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   title: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: "bold",
     marginBottom: 10,
   },

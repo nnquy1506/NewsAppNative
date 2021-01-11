@@ -6,6 +6,7 @@ import VerticalList from "../lists/VerticalList";
 const NewsList = ({route}) => {
   const data = route.params;
   const header = data[0].category.split('-').join('').toUpperCase()
+
   return (
     <>
       <View style={styles.headerContainer}>
@@ -26,13 +27,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: StatusBar.currentHeight,
-    backgroundColor: "#4e4d4d",
+    backgroundColor: "#F1E964",
   },
   categoryTitle: {
     fontSize: 30,
     fontWeight: "bold",
     textTransform: "uppercase",
-    color: "white",
+    color: "black",
   },
 });
 
