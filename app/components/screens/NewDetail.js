@@ -39,7 +39,7 @@ const NewDetail = ({ route }) => {
     getRelatedPosts(postCategory);
   }, []);
   const navigation = useNavigation();
-  const { title, content, thumbnail } = news;
+  const { title, content, thumbnail, desc } = news;
   const contentWidth = useWindowDimensions().width;
   return (
     <>
@@ -48,7 +48,7 @@ const NewDetail = ({ route }) => {
         <Image style={styles.image} source={{ uri: thumbnail }} />
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{title}</Text>
-          {/* <Text style={styles.content}>{content}</Text> */}
+          {/* <Text style={styles.content}>{desc}</Text> */}
           <HTML   source={{ html: content }} contentWidth={contentWidth} />
         </View>
         <View style={styles.relatedPostContainer}>
@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   content: {
-    fontSize: 16,
-    color: "#4e4d4d",
+    fontSize: 14,
+    color: 'black'
   },
   relatedPostContainer: {
     padding: 10,

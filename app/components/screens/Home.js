@@ -11,6 +11,7 @@ import Screen from "../common/Screen";
 import SearchBar from "../SearchBar";
 import TechNews from "../TechNews";
 import ActivityIndicator from "../common/ActivityIndicator";
+import SportNews from "../SportNews";
 // create a component
 const Home = () => {
   const [isSearchFocused, setSearchFocused] = useState(false)
@@ -21,6 +22,7 @@ const Home = () => {
     techNews,
     entertainmentNews,
     loading,
+    sportNews,
   ] = useNews();
   return (
     <>
@@ -30,6 +32,7 @@ const Home = () => {
         <FeaturedNews item={featureNews}/>
         <BreakingNews data={breakingNews}/>
         <PoliticalNews data={politicalNews}/>
+        <SportNews data={sportNews}/>
         <TechNews data={techNews}/>
         <EntertainmentNews data={entertainmentNews}/>
     </Screen>

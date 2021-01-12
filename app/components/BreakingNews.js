@@ -1,12 +1,11 @@
 //import liraries
-import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import {StyleSheet } from "react-native";
 import HorizontalList from "./lists/HorizontalList";
-import VerticalList from "./lists/VerticalList";
 
 // create a component
 const BreakingNews = ({ data }) => {
-  return <VerticalList title="Tin nóng" data={data} />;
+  return <HorizontalList title="Tin mới" data={data} />;
 };
 
 // define your styles

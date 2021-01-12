@@ -3,6 +3,7 @@ import newsApi from "../api/newsApi";
 export default useNews = () => {
   const [featureNews, setFeaturedNews] = useState({});
   const [breakingNews, setBreakingNews] = useState([]);
+  const [sportNews, setSportNews] = useState([]);
   const [politicalNews, setPoliticalNews] = useState([]);
   const [techNews, setTechNews] = useState([]);
   const [entertainmentNews, setEntertainmentNews] = useState([]);
@@ -10,13 +11,16 @@ export default useNews = () => {
   const [loading, setLoading] = useState(false)
 
   const filterFeatured = (data) => {
-    return [...data].filter((item) => item.featured === "on").reverse()[0];
+    return [...data].filter((item) => item.featured === "on")[0];
   };
+
+  const filterBreakingNews = (data) =>{
+    return [...data].filter(item => item.breakingNews==="on" ).splice(0,5)
+  }
 
   const filterByCategory = (data, category) => {
     const result = data
       .filter((item) => item.category === category)
-      .reverse()
       .splice(0, qty);
 
       if(result.length){
@@ -28,7 +32,8 @@ export default useNews = () => {
     setLoading(true)
     const allNews = await newsApi.getAll();
     setFeaturedNews(filterFeatured(allNews));
-    setBreakingNews(filterByCategory(allNews, "tin nóng"));
+    setBreakingNews(filterBreakingNews(allNews));
+    setSportNews(filterByCategory(allNews,'thể thao'))
     setTechNews(filterByCategory(allNews, "công nghệ"));
     setPoliticalNews(filterByCategory(allNews, "chính trị"));
     setEntertainmentNews(filterByCategory(allNews, "giải trí"));
@@ -43,6 +48,7 @@ export default useNews = () => {
     politicalNews,
     techNews,
     entertainmentNews,
-    loading
+    loading,
+    sportNews,
   ];
 };
